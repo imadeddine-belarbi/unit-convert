@@ -36,10 +36,11 @@ convertBtn.addEventListener("click", function() {
 
 function getValue(value) {
     const val = Math.floor(value)
-    if (val !== value) {
+    if (val === value) {
         return value
     } else {
         return value.toFixed(3)
+    }
 }
 
 function render(value) {
