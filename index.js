@@ -30,15 +30,23 @@ inputEl.value = 20;
 render(inputEl.value)
 
 convertBtn.addEventListener("click", function() {
-    const value = Number(inputEl.value).toFixed(3)
+    const value = getValue(Number(input.value))
     render(value)
 })
+
+function getValue(value) {
+    const val = Math.floor(value)
+    if (val !== value) {
+        return value
+    } else {
+        return value.toFixed(3)
+}
 
 function render(value) {
     let scaleItems = ""
     for (let i = 0; i < scales.length; i++) {
-        const convertValue1 = (value * scales[i].standard).toFixed(3)
-        const convertValue2 = (value / scales[i].standard).toFixed(3)
+        const convertValue1 = getValue(value * scales[i].standard)
+        const convertValue2 = getValue(value / scales[i].standard)
         scaleItems += `
             <div class="scale">
                 <h3>${scales[i].name} (${scales[i].units[0]}/${scales[i].units[1]})</h3>
